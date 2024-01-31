@@ -22,9 +22,7 @@ public class HashTagTokenizer {
 
     public static boolean existInDictionary(String word, String[] dictionary) {
         for (int i = 0; i < dictionary.length; i++) {
-            if (word.equals(dictionary[i])){
-                return true;
-            }
+            if (word.equals(dictionary[i])) return true;
         }
         return false;
     }
@@ -40,6 +38,7 @@ public class HashTagTokenizer {
         hashtag = hashtag.toLowerCase();
 
         for (int i = 1; i <= N; i++) {
+            //if current substring is a word, prints it and recursively find the next word
             if (existInDictionary(hashtag.substring(0, i), dictionary)) {
                 System.out.println(hashtag.substring(0, i));
                 breakHashTag(hashtag.substring(i), dictionary);
